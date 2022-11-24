@@ -7,7 +7,6 @@ import { NotfoundComponent } from '../notfound/notfound.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
-import { PagesModule } from '../pages/pages.module';
 
 
 
@@ -15,7 +14,7 @@ import { PagesModule } from '../pages/pages.module';
   declarations: [],
   imports: [
     CommonModule,
-    PagesModule
+    
   ]
 })
 export class StaticRoutingModule { }
