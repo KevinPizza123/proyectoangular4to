@@ -7,6 +7,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { StaticRoutingModule } from './static/static-routing.module';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { NotfoundRoutingModule } from './notfound/notfound-routing.module';
+import { CommonModule } from '@angular/common';
 
 
 const routes: Routes = [
@@ -29,8 +30,13 @@ const routes: Routes = [
 //routermodule.forRoot :especifica las rutas principales
 @NgModule({
   declarations: [],
-  imports:[RouterModule.forRoot(routes),
-  PagesRoutingModule,AuthRoutingModule,NotfoundRoutingModule],
+  imports:[
+   CommonModule,
+   RouterModule,
+  //PagesRoutingModule,
+  AuthRoutingModule,
+  NotfoundRoutingModule,
+  RouterModule.forRoot(routes),],
   
   exports: [RouterModule],
 })

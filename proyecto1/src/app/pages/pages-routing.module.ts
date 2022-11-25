@@ -31,10 +31,20 @@ const routes: Routes = [
   },
 ]
 @NgModule({
-  declarations: [],
+  declarations: [
+DashboardComponent,
+CatalogueComponent,
+ProductComponent
+  ],
+  exports:[
+  DashboardComponent,
+  CatalogueComponent,
+  ProductComponent
+  ],
   imports: [
     CommonModule,
     StaticModule,
+  RouterModule,
     RouterModule.forRoot(routes)
   ]
 })

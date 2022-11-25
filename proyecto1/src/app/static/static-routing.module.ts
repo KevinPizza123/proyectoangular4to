@@ -7,11 +7,15 @@ import { NotfoundComponent } from '../notfound/notfound.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 
 
 @NgModule({
   declarations: [],
+  exports:[
+ // BreadcrumbsComponent,
+  ],
   imports: [
     CommonModule,
     
