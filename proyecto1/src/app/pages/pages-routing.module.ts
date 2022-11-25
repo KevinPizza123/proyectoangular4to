@@ -8,6 +8,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { StaticModule } from '../static/static.module';
 
 
+
 const routes: Routes = [
   //Rutas hijas
   {
@@ -32,20 +33,14 @@ const routes: Routes = [
 ]
 @NgModule({
   declarations: [
-DashboardComponent,
-CatalogueComponent,
-ProductComponent
+
   ],
-  exports:[
-  DashboardComponent,
-  CatalogueComponent,
-  ProductComponent
-  ],
+  
   imports: [
     CommonModule,
     StaticModule,
-  RouterModule,
-    RouterModule.forRoot(routes)
+ 
+    RouterModule.forChild(routes)
   ]
 })
 export class PagesRoutingModule { }
