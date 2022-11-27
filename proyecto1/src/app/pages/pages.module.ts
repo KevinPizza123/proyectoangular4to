@@ -37,7 +37,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    StaticModule
+    StaticModule,
+    RouterModule
+    
   ]
 })
 export class PagesModule { }

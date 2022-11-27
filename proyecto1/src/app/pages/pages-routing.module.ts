@@ -8,6 +8,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { StaticModule } from '../static/static.module';
 import { HomeComponent } from './home/home.component';
 
+
 const routes: Routes = [
   
   {
@@ -36,10 +37,14 @@ const routes: Routes = [
   },
 ]
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
+  
   imports: [
     CommonModule,
     StaticModule,
+
     RouterModule.forChild(routes)
   ]
   //Forchild invoca a los hijos
