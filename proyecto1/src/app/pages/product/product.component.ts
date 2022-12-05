@@ -53,7 +53,7 @@ export class ProductComponent implements OnInit {
     const data = {
       title: 'lapiz',
       price: 60,
-      description: 'calzado-Michael Moran',
+      description: 'calzado-Kevin Sani',
       category: 2,
       images: ['https://api.lorem.space/image/shoes?w=640&h=480&r=8318'],
     };
