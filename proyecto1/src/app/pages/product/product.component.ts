@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
 //Observable trae la informacion
   getProduct() {
     this.httpClient
-      .get('https://api.escuelajs.co/api/v1/products/20')
+      .get('https://api.escuelajs.co/api/v1/products/6')
       .subscribe(response => {
         console.log(response);
       });
@@ -53,11 +53,11 @@ export class ProductComponent implements OnInit {
     const data = {
       title: 'lapiz',
       price: 60,
-      description: 'calzado-Kevin Sani',
+      description: 'calzado-Michael Moran',
       category: 2,
       images: ['https://api.lorem.space/image/shoes?w=640&h=480&r=8318'],
     };
-    const url = 'https://api.escuelajs.co/api/v1/products/201';
+    const url = 'https://api.escuelajs.co/api/v1/products/6';
 
     this.httpClient.put(url, data).subscribe(
       response => {
@@ -66,7 +66,7 @@ export class ProductComponent implements OnInit {
 
   }
   deleteProduct(){
-    const url = 'https://api.escuelajs.co/api/v1/products/202';
+    const url = 'https://api.escuelajs.co/api/v1/products/6';
 
     this.httpClient.delete(url).subscribe(
       response => {

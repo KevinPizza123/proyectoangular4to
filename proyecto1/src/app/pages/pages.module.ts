@@ -40,4 +40,4 @@ import { RouterModule } from '@angular/router';
     StaticModule
   ]
 })
-export class PagesModule { }
+export class PagesModule {}
