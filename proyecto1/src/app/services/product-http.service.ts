@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { ProductModel } from '../models/product.model';
-import { CreateProductDto, UpdateProductDto } from '../modules/product.modul';
-
+import { CreateProductDto, ProductModel, UpdateProductDto } from '../modules/product.modul';
 //servicio se encarga de hacer la peticion y la devuelve al componente
 //servicio hace la peticion al back y le llega la respuesta
 //todos los componentes de comunican con un solo servicio
