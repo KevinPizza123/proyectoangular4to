@@ -26,25 +26,41 @@ export class ProductComponent implements OnInit {
   }
   //subscribe lista de espera va llegar la respuesta
   //Observable trae la informacion
+
   getProduct() {
     return this.productHttpService.getOne(6).subscribe((response) => {
       console.log(response);
     });
   }
-  /*createProduct() {
+  createProduct() {
+    const data ={
+      id: 2,
+      title: "zapato",
+      description:"zapato grande",
+      price: 23,
+      categoryId:2,
+      images:["https://api.lorem.space/image/fashion?w=640&h=480&r=3268"]
+
+    }
     return this.productHttpService.store(data).subscribe((response) => {
       console.log(response);
     });
-  }*/
+  }
 
-  /*updateProduct() {
+  updateProduct() {
+    const data ={
+      id: 2,
+      title: "zapato",
+      description:"zapato grande",
+    }
     return this.productHttpService.update(data, 8).subscribe((response) => {
       console.log(response);
     });
-  }*/
+  }
   deleteProduct() {
-    return this.productHttpService.eraser(6).subscribe((response) => {
+    return this.productHttpService.destroy(6).subscribe((response) => {
       console.log(response);
-    });
-  }
+    });
+  }
 }
+//del component llama los metodos al servicio

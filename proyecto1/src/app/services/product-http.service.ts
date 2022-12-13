@@ -1,59 +1,46 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ProductModel} from '../models/product.model';
+import { map, Observable } from 'rxjs';
+import { ProductModel } from '../models/product.model';
+import { CreateProductDto, UpdateProductDto } from '../modules/product.modul';
 
+//servicio se encarga de hacer la peticion y la devuelve al componente
+//servicio hace la peticion al back y le llega la respuesta
+//todos los componentes de comunican con un solo servicio
 
-@Injectable({
+@Injectable({ //Decorador 
   providedIn: 'root'
 })
-
-
-
-
 export class ProductHttpService {
+  readonly API_URL:string="https://api.escuelajs.co/api/v1/products";//solo de lectura la vareiable
+  constructor(private httpClient: HttpClient) { }//metodos httpclient
+  //productmode[]Cuando recuperamos todo el arreglo de objetos
+  getAll():Observable<ProductModel[]>{
+    const url = `${this.API_URL}`;
+    return this.httpClient.get<ProductModel[]>(this.API_URL);
+   }
 
-readonly API_URL:string ='https://api.escuelajs.co/api/v1/products'; 
+   getOne(id:ProductModel['id']):Observable<ProductModel> {
+   const url = `${this.API_URL}/${id}`;
+    return this.httpClient.get<ProductModel>(url);
+   }
+         //objeto de tipo createproductDto
+   store(product:CreateProductDto):Observable<ProductModel> { 
+    return this.httpClient.post<ProductModel>(this.API_URL, product)
+   }
+ 
+   update(product:UpdateProductDto,id:ProductModel['id']):Observable<ProductModel>  {
+    const url = `${this.API_URL}/${id}`;
+    return this.httpClient.put<ProductModel>(url, product)
+   }
 
-constructor(private httpClient: HttpClient) {}
+   destroy(id: ProductModel['id']):Observable<any> {
+    const url = `${this.API_URL}/${id}`;
+    return this.httpClient.delete<any>(url).pipe(map((response: { rta: boolean; }) => {
+        return response.rta;
+      })
+      );
+  }
+   }
 
-getAll() {
-  return this.httpClient
-     .get(this.API_URL )
- }
-//subscribe lista de espera va llegar la respuesta
-//Observable trae la informacion
- getOne(id:number) {
-  const url = `$( this.API_URL )/${id}`;
-  return this.httpClient
-     .get(url);
-     
- }
- //almacenar store
- store(product:ProductModel) {
-   /*const data = {
-     title:'esfero',
-     price: 45,
-     description: 'utiles escolares',
-     category: 1,
-     images: ['https://api.lorem.space/image/shoes?w=640&h=480&r=8318'],
-   };*/
-
-   return this.httpClient.post(this.API_URL , product)
- }
-//actualizar
- update(id:number , product:ProductModel) {
- const url = `$( this.API_URL )/${id}`;
- return this.httpClient.post(url , product )
-
-  
-
- }
- //borrar
- eraser(id:number){
-  const url = `$( this.API_URL )/${id}`;
-
-  
-  return this.httpClient.delete(url)
- }
-
-}
+// ng g s services/productHttp   -genera el archivo de servicio
